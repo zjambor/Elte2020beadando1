@@ -58,6 +58,17 @@ void print2(std::tuple<int, int> **t, int m, int n)
     }
 }
 
+template<typename T, int, int>
+auto genericprint(T t, int m, int n)
+{
+    for (auto i = 0; i < m; ++i) {
+        for (auto j = 0; j < n; ++j) {
+            cout << t[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 /*
 LeghosszabbKözösRészsorozat(X, n, Y, m)
 for i=1 to n do

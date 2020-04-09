@@ -55,6 +55,7 @@ void main2()
         future_threads.push_back(std::async(std::launch::async, LeghosszabbKozosReszsorozat2, sample, text));        //std::ref(text)
     }
     auto m = static_cast<int>(sample.size()) - 1;
+    auto n = static_cast<int>(textlengths.at(0) - 1);
     std::string str;
 
     for (auto i = 0; i < num; ++i)
@@ -66,6 +67,8 @@ void main2()
         s2 >> str;
         ofile << str << endl;
     }
+
+    genericprint(b, m, n);
 
     ifile.close();
     ofile.close();

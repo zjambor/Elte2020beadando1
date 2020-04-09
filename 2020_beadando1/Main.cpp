@@ -56,17 +56,26 @@ int main()
         future_threads.push_back(std::async(std::launch::async, LeghosszabbKozosReszsorozat, sample, text));        //std::ref(text)
     }
     auto m = static_cast<int>(sample.size()) - 1;
+    auto n = static_cast<int>(textlengths.at(0) - 1);
+
+    b = new tuple_int * [m];
+    /*for (int i = 0; i < m; ++i) {
+        b[i] = new tuple_int[n];
+    }*/
+
     std::string str;
 
     for (auto i = 0; i < num; ++i)
     {
         b = future_threads[i].get();
-        auto n = static_cast<int>(textlengths.at(i) - 1);
+        n = static_cast<int>(textlengths.at(i) - 1);
         s.clear();
         Nyomtat(b, sample, m, n);
         s >> str;
         ofile << str << endl;
     }
+
+    genericprint(b, m, n);
 
     std::cout << endl;
     std::cout << "1. szakasz befejezodott." << endl;

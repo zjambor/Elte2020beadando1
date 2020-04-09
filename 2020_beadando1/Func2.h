@@ -21,4 +21,15 @@ v_matrix LeghosszabbKozosReszsorozat2(std::string X, std::string Y);
 
 void main2();
 
+template<class T>
+void genericprint(T t, int m, int n)
+{
+    for (auto i = 0; i < m; ++i) {
+        for (auto j = 0; j < n; ++j) {
+            std::cout << "(" << std::get<0>(t[i][j]) << ", " << std::get<1>(t[i][j]) << ") ";
+        }
+        cout << endl;
+    }
+}
+
 #endif /* FUNC2_H */
