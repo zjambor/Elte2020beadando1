@@ -69,8 +69,12 @@ int main()
     {
         b = future_threads[i].get();
         n = static_cast<int>(textlengths.at(i) - 1);
-        s.clear();
-        Nyomtat(b, sample, m, n);
+        s.clear(0, true);
+        str.clear();
+        if (n > 0)
+        {
+            Nyomtat(b, sample, m, n);            
+        }
         s >> str;
         ofile << str << endl;
     }
