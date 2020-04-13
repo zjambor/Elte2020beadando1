@@ -30,10 +30,10 @@ void Nyomtat(matrix b, std::string X, int i, int j) {
 
 int main()
 {
-    std::string inputfile = "D:\\input.txt";
+    std::string inputfile = "input.txt";
     std::ifstream ifile(inputfile.c_str());
 
-    std::string outputfile = "D:\\output.txt";
+    std::string outputfile = "output.txt";
     std::ofstream ofile(outputfile.c_str(), std::ios::out);
     
     std::vector<std::future<matrix>> future_threads;
@@ -59,9 +59,6 @@ int main()
     auto n = static_cast<int>(textlengths.at(0) - 1);
 
     b = new tuple_int * [m];
-    /*for (int i = 0; i < m; ++i) {
-        b[i] = new tuple_int[n];
-    }*/
 
     std::string str;
 
@@ -69,7 +66,7 @@ int main()
     {
         b = future_threads[i].get();
         n = static_cast<int>(textlengths.at(i) - 1);
-        s.clear(0, true);
+        s.clear();
         str.clear();
         if (n > 0)
         {
@@ -90,4 +87,12 @@ int main()
     std::cout << endl;
     std::cout << "2. szakasz befejezodott." << endl;
     std::cout << "A program futasa befejezodott." << endl;
+    std::cout << "Press any key to continue...";
+    cin.get();
+
+    for (int i = 0; i < m; ++i) {
+        delete[] b[i];
+    }
+
+    delete[] b;
 }

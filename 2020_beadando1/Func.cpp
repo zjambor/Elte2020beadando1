@@ -50,5 +50,11 @@ matrix LeghosszabbKozosReszsorozat(std::string X, std::string Y)
         }
     }
 
+    for (int i = 0; i < m; ++i) {
+        delete[] c[i];
+    }
+
+    delete[] c;
+
     return b;
 }

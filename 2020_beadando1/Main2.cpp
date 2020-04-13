@@ -29,10 +29,10 @@ void Nyomtat2(v_matrix b, std::string X, int i, int j) {
 
 void main2()
 {
-    std::string inputfile = "D:\\input.txt";
+    std::string inputfile = "input.txt";
     std::ifstream ifile(inputfile.c_str());
 
-    std::string outputfile = "D:\\output-vect.txt";
+    std::string outputfile = "output-vect.txt";
     std::ofstream ofile(outputfile.c_str(), std::ios::out);
 
     std::vector<std::future<v_matrix>> future_threads;
@@ -62,7 +62,7 @@ void main2()
     {
         b = future_threads[i].get();
         auto n = static_cast<int>(textlengths.at(i) - 1);
-        s2.clear(0, true);
+        s2.clear();
         str.clear();
         if (n > 0)
         {
